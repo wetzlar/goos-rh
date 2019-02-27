@@ -13,6 +13,15 @@ jdk:
 env:
   - TERM=dumb
 
+deploy:
+  provider: heroku
+  api_key:
+    secure: "Fy4jj4yxp41TPM65s1N9vpavb4gR4hFTnibumFul5ePSJpq/X4VC77I029fFs3rWBDSG/c4KjgGwvkM6XfUelH44104rjCgtf7FG2wMBWY983r2JuykMbxZM2NECz+3I2VhoRgyuRc4rEUlxRu7YxmSlGCqxKo6nHiEgCcwbUFLUIX+8V60LtzEMci7qKpuqqHTfGSNoOxTnGdKdPvgWQ+kpMcfL+HjvSCqLaQyTh5p4IEjPrS9m8MXKZ9JeoH6ITdETsk6Bh/gjWJ6MenPK4JH15wA1ErIZ+xoywQgcLE83rnDtfR5QWAhd6SWANeubgKhqqMdTm+UQppk1LTfxQv6LHW2tFMrc/MOpsHdQ0DR0FQzMF8l66y7Yft5TKk7Qjodot5qPfnmVmaXYpyenjsV7Dtlho27Bg1KK2EEbTkPRCuxkWpYEU3LPX9OV5rXtdWNF5pYF8CxPexERjR4QC9HE9WL6kH6vmCRR2jmZTO9EITs8EU0tijHq3VUW81VW+GO7/BTjMOv4mtJzrOCc/YRBAiT46z+veDTTubcQ1+WQ3fURunjzD+5Pl9JHOux1h53kbEIegzB82Mi8c78fUla84emA5/bm8cxn8hsaYnFSJ34n/KTpTIEFjUeuCDGq/u7Cd8FbKWjCmacQ05sMK748pkAPVCkzr0v5M+ljHbY="
+  app: goos-rh
+  on:
+    repo: wetzlar/goos-rh
+
+
 after_success:
   - ./gradlew jacocoEndtoendTestReport coveralls --info
 
